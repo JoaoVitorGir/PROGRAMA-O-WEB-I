@@ -49,22 +49,22 @@
     echo "</table> </div> </div>";
     echo "<div class='container'> <div class='row'> <div class='col-12 text-center'";
 
-    if($PaginaAtual != 0){
+    if($PaginaAtual > 1){
         $PaginaBotao = $PaginaAtual-1;
-        echo "<a href='?pagina={$PaginaBotao}'><input type='button' name = 'volta' value='<<<'></a>";
+        echo "<a href='?pagina={$PaginaBotao}'><input type='button' name = 'volta' value='voltar'></a>";
     }else{
-        echo "<a href='?'><input type='button' name = 'volta' value='<<<'></a>";
+        echo "<a href='?'><input type='button' name = 'volta' value='voltar'></a>";
     };
 
     if ( $PaginaAtual < ($Linhas / $NumRegistros)){
         $PaginaBotao = $PaginaAtual+1;
-        echo "<a href='?pagina={$PaginaBotao}'><input type='button' name = 'prox' value='>>>'></a>";
+        echo "<a href='?pagina={$PaginaBotao}'><input type='button' name = 'prox' value='proximo'></a>";
     }else{
-        echo "<a href='?'><input type='button' name = 'prox' value='>>>'></a>";
+        echo "<a href='?'><input type='button' name = 'prox' value='proximo'></a>";
     };
 
     //$PaginaAtual++;
-    echo "<p>Pagina atual : {$PaginaAtual }</p>";
+    echo "<p>Pagina atual : {$PaginaAtual}</p>";
 
     echo "</table> </div> </div> </div> ";
 ?>
