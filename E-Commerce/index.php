@@ -21,12 +21,15 @@
             color: blue;
             text-decoration: underline;
         }
+        *, ::after, ::before {
+          box-sizing: content-box;
+        }
     </style>
 
 </head>
 <body>
-    <div class="container" >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px; padding: 10px; margin: 5px">
+    <div class="container-fluid" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px; padding: 10px; margin: 5px 5px 25px 5px">
   <div class="container-fluid" >
     <a class="navbar-brand" href="#">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,31 +44,84 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Categorias</a></li>
+            <li><a class="dropdown-item" href="#">Compras</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Carinho</a></li>
           </ul>
         </li>
         
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
       </form>
     </div>
   </div>
 </nav>
+      </div>
+      <div class="container" >
         <div class="row">
             
         </div>
-        <div class="row" >
-          <!-- Inicio lista de Imgens -->
-        <div class="col-8">
+        <div class="row">
+          
+        
+            <!-- Lista de produtos Incio -->
+            <div class="col-2" > <!-- style="margin-left: 90px;" -->
+              <!-- lista Inicio -->
+              
+                <ul class="list-group list-group">
+                    <?php
+                        $sql = "SELECT * FROM meu_commerce.categorias WHERE categoria_pai is null";
+                        $consulta = $conn->prepare($sql);
+                        $consulta->execute();
+                       //for que vai listar as categorias principais 
+                        foreach($consulta as $linha){
+                    ?>
+
+
+
+
+                                <li class="list-group-item d-flex justify-content-between " style="border-bottom: none;">
+                                    <div>
+                                      <div class="fw-bold">
+                                        <a style="color:black; text-decoration:none; hover-back; font-size: 18px;" href="?categoria=<?php echo $linha['id'];?>">
+
+                                          <!-- aqui passa o valor da categoria principal " AQUI " -->
+                                          <div class="item-menu">
+                                            <?php echo $linha['descricao'];?>
+                                          </div>
+                                        </a>
+                                      </div>
+                                      <?php
+                                      //listar as sub-categorias
+                                      $sql_itens = "SELECT * FROM meu_commerce.categorias WHERE categoria_pai = ".$linha['id'];
+                                      $subitens = $conn->prepare($sql_itens);
+                                      $subitens->execute();
+                                      foreach($subitens as $item){
+                                     ?>
+                                                  <!-- aqui passa os sub produtos da categoria principal " AQUI "-->
+                                               <a style="color:grey ; text-decoration:none; font-size: 15px;" 
+                                               onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'"
+                                               href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?></a><br>
+                                              <?php
+                                              }
+                          }
+                    ?>   
+                                    </div>
+                        </li>
+              
+                </ul>
+
+                
+              <!-- lista Final -->
+                          
+            </div> <!-- final lista de produtos -->
+            <!-- Inicio lista de Imgens -->
+            <div class="col-9">
                 <?php
                     if(isset($_GET['categoria'])){
                         $sql = "SELECT p.id as id_produto, 
@@ -95,69 +151,22 @@
                    
                     foreach($consulta as $linha){?>
 
-                    <div class="card" style="width: 14rem; display: inline-block; margin: 5px;">
-                        <img style="width: 14rem;" src="<?php echo $linha['imagem'];?>" alt="...">
+                    <div class="card" style="width: 19rem; display: inline-block; margin: 0px 13px 13px 13px; border-radius: 12px">
+                        <img style="width: 19rem; border-radius: 12px;" src="<?php echo $linha['imagem'];?>" alt="...">
                         <div class="card-body">
-                            <a class="desc" href="descricao.php"><h5 class="card-title"><?php echo $linha['descricao'];?></h5></a>
+                          <div>
+                            <a style="text-align: center;" class="desc" href="descricao.php"><h5 class="card-title"><?php echo $linha['descricao'];?></h5></a>
                             <p class="card-text"><?php echo $linha['resumo']?></p>
+                          </div>
 
+                            
                         </div>
+                        <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center;">Ver mais</a>
                     </div>
                     <?php
                     }
                 ?>
             </div>  <!-- Final da lista de imagens -->
-
-            <!-- Lista de produtos Incio -->
-            <div class="col-3" style="margin-left: 90px;">
-              
-              <!-- lista Inicio -->
-              
-                <ol class="list-group list-group-numbered">
-                    <?php
-                        $sql = "SELECT * FROM meu_commerce.categorias WHERE categoria_pai is null";
-                        $consulta = $conn->prepare($sql);
-                        $consulta->execute();
-                       //for que vai listar as categorias principais 
-                        foreach($consulta as $linha){
-                    ?>
-
-
-
-
-                                <li class="list-group-item d-flex justify-content-between align-items-start" style="border-bottom: none;">
-                                    <div class="ms-2 me-auto">
-                                      <div class="fw-bold">
-                                        <a style="color:black; text-decoration:none; hover-back" 
-                                                
-                                                 onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'" href="?categoria=<?php echo $linha['id'];?>">
-
-                                          <!-- aqui passa o valor da categoria principal " AQUI " -->
-                                          <div class="item-menu"><?php echo $linha['descricao'];?></div>
-                                        </a>
-                                      </div>
-                                      <?php
-                                      //listar as sub-categorias
-                                      $sql_itens = "SELECT * FROM meu_commerce.categorias WHERE categoria_pai = ".$linha['id'];
-                                      $subitens = $conn->prepare($sql_itens);
-                                      $subitens->execute();
-                                      foreach($subitens as $item){
-                                     ?>
-                                                  <!-- aqui passa os sub produtos da categoria principal " AQUI "-->
-                                               <a style="color:grey ; text-decoration:none" href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?></a><br>
-                                              <?php
-                                              }
-                          }
-                    ?>   
-                                    </div>
-                                </li>
-              
-                </ol>
-
-                
-              <!-- lista Final -->
-                          
-            </div> <!-- final lista de produtos -->
 
 
             
