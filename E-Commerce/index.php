@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matriz</title>
+    <title>E-Commerce</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -18,19 +18,34 @@
             color: black;
         }
         .desc:hover{
-            color: blue;
-            text-decoration: underline;
+            color: grey;
+            text-decoration: underline; 
         }
-        *, ::after, ::before {
-          box-sizing: content-box;
+        /* *, ::after,::before {
+           box-sizing: content-box; 
+        } */
+
+        .col-10 {
+          padding-right: 0;
+          padding-left: 0;
+        }
+        .col-2 {
+          padding-right: 0;
+          padding-left: 0;
+        }
+        .p_Descricao {
+          max-width: 25ch;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
     </style>
 
 </head>
 <body>
     <div class="container-fluid" >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px; padding: 10px; margin: 5px 5px 25px 5px">
-  <div class="container-fluid" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px;  margin: 0px 10px 25px 0px">
+  <div class="container" >
     <a class="navbar-brand" href="#">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -63,10 +78,10 @@
 </nav>
       </div>
       <div class="container" >
-        <div class="row">
+        <div class="row" >
             
         </div>
-        <div class="row">
+        <div class="row" >
           
         
             <!-- Lista de produtos Incio -->
@@ -104,7 +119,7 @@
                                       foreach($subitens as $item){
                                      ?>
                                                   <!-- aqui passa os sub produtos da categoria principal " AQUI "-->
-                                               <a style="color:grey ; text-decoration:none; font-size: 15px;" 
+                                               <a style="color:black ; text-decoration:none; font-size: 15px;" 
                                                onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'"
                                                href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?></a><br>
                                               <?php
@@ -121,7 +136,8 @@
                           
             </div> <!-- final lista de produtos -->
             <!-- Inicio lista de Imgens -->
-            <div class="col-9">
+            <div class="col-10" >
+              <div style="text-align: justify; padding: 0px 30px 10px 30px;">
                 <?php
                     if(isset($_GET['categoria'])){
                         $sql = "SELECT p.id as id_produto, 
@@ -151,23 +167,29 @@
                    
                     foreach($consulta as $linha){?>
 
-                    <div class="card" style="width: 19rem; display: inline-block; margin: 0px 13px 13px 13px; border-radius: 12px">
-                        <img style="width: 19rem; border-radius: 12px;" src="<?php echo $linha['imagem'];?>" alt="...">
+                    <div class="card" style="display: inline-flex; margin: 0px 13px 13px 13px; border-radius: 12px">
+                        <!-- Imagem Item -->
+                        <div style="align-self: center;">
+                          <img style="width: 17rem; padding: 2px; border-radius: 12px;" src="<?php echo $linha['imagem'];?>" alt="...">
+                        </div>
                         <div class="card-body">
-                          <div>
-                            <a style="text-align: center;" class="desc" href="descricao.php"><h5 class="card-title"><?php echo $linha['descricao'];?></h5></a>
-                            <p class="card-text"><?php echo $linha['resumo']?></p>
+                          <div style="width: 17rem;">
+                            <!-- Nome do produto -->
+                            <a style="text-align: center;" class="desc" href="descricao.php">
+                              <h5 class="card-title"><?php echo $linha['descricao'];?></h5>
+                            </a>
+                            <!-- Descrição -->
+                            <p class= "p_Descricao"><?php echo $linha['resumo']?></p>
                           </div>
 
-                            
                         </div>
                         <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center;">Ver mais</a>
                     </div>
                     <?php
                     }
                 ?>
-            </div>  <!-- Final da lista de imagens -->
-
+              </div>  <!-- Final da lista de imagens -->
+              </div>
 
             
         </div>
