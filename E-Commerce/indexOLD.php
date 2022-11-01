@@ -11,21 +11,17 @@
     <title>E-Commerce</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .desc {
             text-decoration: none;
             color: black;
             pointer-events: none;
         }
-        .descItens{
-          text-decoration: none;
-          color: black;
-        }
-        .descItens:hover{
-            text-decoration: none;
-            color: black;
-        }
+        
+        /* *, ::after,::before {
+           box-sizing: content-box; 
+        } */
 
         .col-10 {
           padding-right: 0;
@@ -45,9 +41,8 @@
     </style>
 
 </head>
-<body> 
+<body>
     <div class="container-fluid" >
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px;  margin: 0px 10px 25px 0px">
   <div class="container" >
     <a class="navbar-brand" href="#">E-Commerce</a>
@@ -89,7 +84,7 @@
           
         
             <!-- Lista de produtos Incio -->
-            <div class="col-2" style="min-height: 800px; border-style: groove; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
+            <div class="col-2" > <!-- style="margin-left: 90px;" -->
               <!-- lista Inicio -->
               
                 <ul class="list-group list-group">
@@ -101,24 +96,18 @@
                         foreach($consulta as $linha){
                     ?>
 
-                          
 
-                                <li class="list-group-item d-flex justify-content-between " style="border: thin;">
-                                <!-- LISTA ITENS -->
-                                <div class="accordion accordion-flush" id="ac">
-                                  <div class="accordion-item">
-                                    <div id="flush-heading">
-                                                                                                             <!-- ref está apenas para concatenar e nao dar erro por ser so numero -->
-                                      <div  style="text-align: start;" data-bs-toggle="collapse" data-bs-target="#ref<?php echo $linha['id'];?>" aria-expanded="false" aria-controls="flush-collapse">
-                                      <a href="#" class="descItens"><strong><?php echo $linha['descricao'];?></strong> </a>
-                        </div>
-                        </div>
-                                    
-                                 
-                              <!-- LISTA -->
-                              
+                                <li class="list-group-item d-flex justify-content-between " style="border-bottom: none;">
                                     <div>
-                                      
+                                      <div class="fw-bold">
+                                        <a style="color:black; text-decoration:none; font-size: 18px;" href="?categoria=<?php echo $linha['id'];?>">
+
+                                          <!-- aqui passa o valor da categoria principal " AQUI " -->
+                                          <div class="item-menu">
+                                            <?php echo $linha['descricao'];?>
+                                          </div>
+                                        </a>
+                                      </div>
                                       <?php
 
                                       //listar as sub-categorias
@@ -127,23 +116,15 @@
                                       $subitens->execute();
                                       foreach($subitens as $item){
                                      ?>
-                                                  <!-- aqui passa os sub produtos da categoria principal -->
-                                                  <div id="ref<?php echo $linha['id'];?>" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#ac">
-                                                    <div class="accordion-body" style="text-align: left; padding: inherit;">
-                                                    <i class="fa fa-check" style="color: brown;"></i> <a style="color:black ; text-decoration:none; font-size: 15px;" 
-                                                        onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'"
-                                                        href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?>
-                                                      </a><br>
-                                                    </div>
-                                                  </div>
-                                               
+                                                  <!-- aqui passa os sub produtos da categoria principal " AQUI "-->
+                                               <a style="color:black ; text-decoration:none; font-size: 15px;" 
+                                               onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'"
+                                               href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?></a><br>
                                               <?php
                                               }
                           }
                     ?>   
                                     </div>
-                                    </div>
-                                </div>
                         </li>
               
                 </ul>
@@ -153,7 +134,7 @@
                           
             </div> <!-- final lista de produtos -->
             <!-- Inicio lista de Imgens -->
-            <div class="col-10" style="background-color: #d7d7d7; border-radius: 12px;">
+            <div class="col-10" >
               <div style="text-align: justify; padding: 0px 30px 10px 30px;">
                 <?php
                     if(isset($_GET['categoria'])){
@@ -214,13 +195,13 @@
         </div>
     </div>  
     <div class="container-fluid" style="padding:0px">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-top: ridge;">
-        <div class="container" >
-          <a class="navbar-brand" href="#">E-Commerce</a>
-          <a class="navbar-brand" style = "font-size: inherit;" href="#">E-MAIL E-Commerce@gmail.com</a>
-          <a class="navbar-brand" style = "font-size: inherit;" href="#">whatsapp (47) 12345-1234</a>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-top: ridge;">
+  <div class="container" >
+    <a class="navbar-brand" href="#">E-Commerce</a>
+    <a class="navbar-brand" style = "font-size: inherit;" href="#">E-MAIL E-Commerce@gmail.com</a>
+    <a class="navbar-brand" style = "font-size: inherit;" href="#">whatsapp (47) 12345-1234</a>
     </div>
+  </div>
     
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
