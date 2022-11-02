@@ -35,12 +35,34 @@
           padding-right: 0;
           padding-left: 0;
         }
-        .p_Descricao {
-          /* max-width: 25ch; */
-          max-height: 5ch;
+
+        .h5-card{
+          display: -webkit-box;
+          height: 30px;
           overflow: hidden;
           text-overflow: ellipsis;
-          /* white-space: nowrap; */
+          white-space: normal;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          padding-top: 4px;
+          color: #000000;
+          text-align: center;
+        }
+
+        .p_Descricao {
+          display: -webkit-box;
+          height: 70px;
+          width: 220px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          text-align: center;
+          margin-inline: auto;
+        }
+        .hr {
+          margin: 10px 0;
         }
     </style>
 
@@ -184,17 +206,19 @@
                    
                     foreach($consulta as $linha){?>
 
-                    <div class="card" style="display: inline-flex; margin: 0px 13px 13px 13px; border-radius: 12px">
+                    <div class="card" style="display: inline-flex; margin: 10px 13px 13px 13px; border-radius: 12px">
                         <!-- Imagem Item -->
-                        <div style="align-self: center;">
-                          <img style="width: 17rem;  border-radius: 12px; margin-top: 15px;" src="<?php echo $linha['imagem'];?>" alt="...">
+                        <div style="align-self: center; padding: 4px; width: 250px; height: 175px;">
+                          <img style="padding: 4px; width: 250px; height: 175px;" src="<?php echo $linha['imagem'];?>" alt="...">
                         </div>
-                        <div class="card-body">
+                        <hr class="hr">
+                        <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
                           <div style="width: 17rem;">
                             <!-- Nome do produto -->
-                            <a style="text-align: center;" class="desc" href="descricao.php">
-                              <h5 class="card-title"><?php echo $linha['descricao'];?></h5>
-                            </a>
+                            
+                            <a style="text-align: center;" class="desc" href="descricao.php"></a>
+                            <h5 class="h5-card"><?php echo $linha['descricao'];?></h5>
+                            
                             <!-- Descrição -->
                             <div>
                               <p class= "p_Descricao"><?php echo $linha['resumo']?></p>
