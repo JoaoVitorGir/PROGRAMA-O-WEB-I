@@ -176,7 +176,7 @@
             </div> <!-- final lista de produtos -->
             <!-- Inicio lista de Imgens -->
             <div class="col-10" style="background-color: #d7d7d7; border-radius: 12px;">
-              <div style="text-align: justify; padding: 0px 30px 10px 30px;">
+              <div style="text-align: center; padding: 0px 30px 10px 30px;">
                 <?php
                     if(isset($_GET['categoria'])){
                         $sql = "SELECT p.id as id_produto, 
