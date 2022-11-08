@@ -103,7 +103,7 @@
   </div>
 </nav>
       </div>
-      <div class="container" >
+      <div class="container p-3 mb-5" >
         <div class="row" >
             
         </div>
@@ -111,7 +111,7 @@
           
         
             <!-- Lista de produtos Incio -->
-            <div class="col-2" style="min-height: 800px; border-style: groove; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
+            <div class="col-lg-2 col-sm-12" style="border-style: groove; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
               <!-- lista Inicio -->
               
                 <ul class="list-group list-group">
@@ -175,8 +175,8 @@
                           
             </div> <!-- final lista de produtos -->
             <!-- Inicio lista de Imgens -->
-            <div class="col-10" style="background-color: #d7d7d7; border-radius: 12px;">
-              <div style="text-align: center; padding: 0px 30px 10px 30px;">
+            <div class="col-9" style="border-radius: 12px; margin-left: 10px;">
+              <div class="row">
                 <?php
                     if(isset($_GET['categoria'])){
                         $sql = "SELECT p.id as id_produto, 
@@ -206,10 +206,10 @@
                    
                     foreach($consulta as $linha){?>
 
-                    <div class="card" style="display: inline-flex; margin: 10px 13px 13px 13px; border-radius: 12px">
+                    <div class="card col-lg-4 col-md-6 col-sm-12 p-2" style="margin-top: 10px;">
                         <!-- Imagem Item -->
-                        <div style="align-self: center; padding: 4px; width: 250px; height: 175px;">
-                          <img style="padding: 4px; width: 250px; height: 175px;" src="<?php echo $linha['imagem'];?>" alt="...">
+                        <div class="text-center">
+                          <img class="img-fluid" src="<?php echo $linha['imagem'];?>" alt="...">
                         </div>
                         <hr class="hr">
                         <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
