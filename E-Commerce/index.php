@@ -52,7 +52,7 @@
         .p_Descricao {
           display: -webkit-box;
           height: 70px;
-          width: 220px;
+          /* width: 220px; */
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: normal;
@@ -63,6 +63,11 @@
         }
         .hr {
           margin: 10px 0;
+        }
+        .p_Valor_Produto{
+          font-weight: 900;
+          text-align: center;
+          font-size: 17px;
         }
     </style>
 
@@ -111,7 +116,7 @@
           
         
             <!-- Lista de produtos Incio -->
-            <div class="col-lg-2 col-sm-12" style="border-style: groove; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
+            <div class="col-lg-2 col-sm-12" style="border: 1px; border-style: solid; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
               <!-- lista Inicio -->
               
                 <ul class="list-group list-group">
@@ -184,6 +189,7 @@
                                        p.imagem, 
                                        p.descricao, 
                                        p.resumo, 
+                                       p.valor,
                                        c.categoria_pai, 
                                        c.id as id_categoria
                                   FROM produtos p
@@ -197,7 +203,8 @@
                                        p.categoria_id, 
                                        p.imagem, 
                                        p.descricao, 
-                                       p.resumo 
+                                       p.resumo, 
+                                       p.valor
                                   FROM produtos p 
                               ORDER BY RAND()";
                     }
@@ -205,29 +212,34 @@
                     $consulta->execute();
                    
                     foreach($consulta as $linha){?>
-
-                    <div class="card col-lg-4 col-md-6 col-sm-12 p-2" style="margin-top: 10px;">
-                        <!-- Imagem Item -->
-                        <div class="text-center">
-                          <img class="img-fluid" src="<?php echo $linha['imagem'];?>" alt="...">
-                        </div>
-                        <hr class="hr">
-                        <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
-                          <div style="width: 17rem;">
-                            <!-- Nome do produto -->
-                            
-                            <a style="text-align: center;" class="desc" href="descricao.php"></a>
-                            <h5 class="h5-card"><?php echo $linha['descricao'];?></h5>
-                            
-                            <!-- Descrição -->
-                            <div>
-                              <p class= "p_Descricao"><?php echo $linha['resumo']?></p>
-                            </div>
+                      
+                      <div class="card col-lg-3 col-md-6 col-sm-12 p-2" style="margin-top: 10px; border: none;">
+                          <!-- Imagem Item -->
+                          <div class="text-center" style="height: 172px; display: flex;">
+                            <img class="img-fluid" src="<?php echo $linha['imagem'];?>" alt="...">
                           </div>
+                          <hr class="hr">
+                          <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
+                            <div >
+                              <!-- Nome do produto -->
+                              <a style="text-align: center;" class="desc" href="descricao.php"></a>
+                              <h5 class="h5-card"><?php echo $linha['descricao'];?></h5>
+                              
+                              <!-- Descrição -->
+                              <div>
+                                <p class= "p_Descricao"><?php echo $linha['resumo']?></p>
+                                <!-- Valor-->
+                              
+                                <p class="p_Valor_Produto">R$<?php echo $linha['valor']?></p>
+                              
+                              </div>
+                              
+                            </div>
 
-                        </div>
-                        <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center;">Ver mais</a>
-                    </div>
+                          </div>
+                          <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center;">Ver mais</a>
+                      </div>
+                      
                     <?php
                     }
                 ?>
