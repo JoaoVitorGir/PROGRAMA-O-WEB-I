@@ -69,33 +69,37 @@
           text-align: center;
           font-size: 17px;
         }
+        .menu {
+          color: #6b1a88;
+          font-weight: 700;
+        }
     </style>
 
 </head>
-<body> 
+<body > 
     <div class="container-fluid" >
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border: solid 1px; border-radius: 5px;  margin: 0px 10px 25px 0px">
+    <nav class="navbar navbar-expand-lg navbar-light" style="border: solid 1px; border-radius: 5px;  margin: 0px 10px 25px 0px">
   <div class="container" >
-    <a class="navbar-brand" href="#">E-Commerce</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" style="color: #6b1a88;font-weight: 700;" href="index.php">E-Commerce</a>
+    <button style="border-color: #6b1a88;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#" style="color: #6b1a88;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#" style="color: #6b1a88;">Link</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6b1a88;">Produtos</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Categorias</a></li>
-            <li><a class="dropdown-item" href="#">Compras</a></li>
+            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Categorias</a></li>
+            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Compras</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Carinho</a></li>
+            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Carinho</a></li>
           </ul>
         </li>
         
@@ -108,7 +112,7 @@
   </div>
 </nav>
       </div>
-      <div class="container p-3 mb-5" >
+      <div class="container p-3 mb-5" style="min-height: 80vh;" >
         <div class="row" >
             
         </div>
@@ -137,7 +141,7 @@
                                     <div id="flush-heading">
                                                                                                              <!-- ref está apenas para concatenar e nao dar erro por ser so numero -->
                                       <div  style="text-align: start;" data-bs-toggle="collapse" data-bs-target="#ref<?php echo $linha['id'];?>" aria-expanded="false" aria-controls="flush-collapse">
-                                      <a href="#" class="descItens"><strong><?php echo $linha['descricao'];?></strong> </a>
+                                      <a href="#" class="descItens" style="color: #6b1a88;"><strong><?php echo $linha['descricao'];?></strong> </a>
                         </div>
                         </div>
                                     
@@ -249,7 +253,13 @@
             
         </div>
     </div>  
-    <div class="container-fluid" style="padding:0px">
+    
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+<footer>
+<div class="container-fluid" style="padding:0px">
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-top: ridge;">
         <div class="container" >
           <a class="navbar-brand" href="#">E-Commerce</a>
@@ -257,9 +267,6 @@
           <a class="navbar-brand" style = "font-size: inherit;" href="#">whatsapp (47) 12345-1234</a>
         </div>
     </div>
-    
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
+</footer>
 </html>
 
