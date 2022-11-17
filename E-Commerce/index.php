@@ -217,32 +217,34 @@
                    
                     foreach($consulta as $linha){?>
                       
-                      <div class="card col-lg-3 col-md-6 col-sm-12 p-2" style="margin-top: 10px; border: none;">
+                      <main class="cards col-lg-3 col-md-6 col-sm-12 p-2" style="margin-top: 10px; border: none;">
+                        <section class="card">
                           <!-- Imagem Item -->
-                          <div class="text-center" style="height: 172px; display: flex;">
-                            <img class="img-fluid" src="<?php echo $linha['imagem'];?>" alt="...">
+                          <div class="text-center" style="width: 200px; display: flex; height:250px; padding:10px; margin: auto;">
+                            <img class="img-fluid" style="width:100%; display: block; margin:auto;" src="<?php echo $linha['imagem'];?>" alt="...">
                           </div>
                           <hr class="hr">
                           <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
                             <div >
                               <!-- Nome do produto -->
                               <a style="text-align: center;" class="desc" href="descricao.php"></a>
-                              <h5 class="h5-card"><?php echo $linha['descricao'];?></h5>
+                              <h5 class="card-title p_Descricao"><?php echo $linha['descricao'];?></h5>
                               
                               <!-- Descrição -->
                               <div>
-                                <p class= "p_Descricao"><?php echo $linha['resumo']?></p>
+                                <p class= "card-text p_Descricao"><?php echo $linha['resumo']?></p>
                                 <!-- Valor-->
                               
-                                <p class="p_Valor_Produto">R$<?php echo $linha['valor']?></p>
+                                <p class="card-text">R$<?php echo $linha['valor']?></p>
                               
                               </div>
                               
                             </div>
 
                           </div>
-                          <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center;">Ver mais</a>
-                      </div>
+                          <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center; margin:20px">Ver mais</a>
+                        </section>
+                    </main>
                       
                     <?php
                     }
