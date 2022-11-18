@@ -51,15 +51,26 @@
 
         .p_Descricao {
           display: -webkit-box;
-          height: 70px;
-          /* width: 220px; */
+          height: 58px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: normal;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
           text-align: center;
-          margin-inline: auto;
+          font-size: 13px;
+          margin: 0px;
+        }
+        .p_title {
+          display: -webkit-box;
+          height: 40px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          text-align: center;
+          margin: 0px;
         }
         .hr {
           margin: 10px 0;
@@ -73,46 +84,94 @@
           color: #6b1a88;
           font-weight: 700;
         }
+        .card_imagens{
+          box-shadow: 2px 1px 6px grey;
+        }
     </style>
 
 </head>
 <body > 
-    <div class="container-fluid" >
+<div class="container-fluid" style="padding:0px; background-color: #6b1a88; height:100px;">
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="border: solid 1px; border-radius: 5px;  margin: 0px 10px 25px 0px">
-  <div class="container" >
-    <a class="navbar-brand" style="color: #6b1a88;font-weight: 700;" href="index.php">E-Commerce</a>
+  <nav class="navbar navbar-expand-lg navbar-light" >
+  <div class="container" style="padding-top: 5px" >
+    <a class="navbar-brand" style="color: white;font-weight: 700; font-size: 40px;" href="index.php">E-Commerce</a>
     <button style="border-color: #6b1a88;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" style="color: #6b1a88;">Home</a>
+          <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: #6b1a88;">Link</a>
+          <a class="nav-link" href="#" style="color: white;">Link</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6b1a88;">Produtos</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Produtos</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Categorias</a></li>
-            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Compras</a></li>
+            <li><a class="dropdown-item" style="color: #6b81a8;" href="#">Categorias</a></li>
+            <li><a class="dropdown-item" style="color: #6b81a8;" href="#">Compras</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" style="color: #6b1a88;" href="#">Carinho</a></li>
+            <li><a class="dropdown-item" style="color: #6b81a8;" href="#">Carinho</a></li>
           </ul>
         </li>
         
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        <input class="form-control me-2" style="background-color: #ffffffb3"type="search" placeholder="Pesquisar" aria-label="Search">
+        <button class="btn btn-outline-success" style="border-color: white; color: white;" type="submit">Pesquisar</button>
       </form>
     </div>
   </div>
 </nav>
+
       </div>
+      <!-- inicio slide de produtos -->
+      <div class="container-fluid" style="height: 300px; background-color: grey; margin: 20px 0px 10px 0px;">
+      imagens passando aqui
+        <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" style="heigth: 100px;">
+              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="heigth: 100px;">
+              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="heigth: 100px;">
+              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> -->
+      </div>
+      <!-- fim do slide de produtos -->
       <div class="container p-3 mb-5" style="min-height: 80vh;" >
+      
         <div class="row" >
             
         </div>
@@ -120,7 +179,7 @@
           
         
             <!-- Lista de produtos Incio -->
-            <div class="col-lg-2 col-sm-12" style="border: 1px; border-style: solid; border-radius: 15px;"> <!-- style="margin-left: 90px;" -->
+            <div class="col-lg-2 col-sm-12" style="margin-top: 15px;"> <!-- style="margin-left: 90px;" -->
               <!-- lista Inicio -->
               
                 <ul class="list-group list-group">
@@ -134,13 +193,13 @@
 
                           
 
-                                <li class="list-group-item d-flex justify-content-between " style="border: thin;">
+                                <li class="list-group-item d-flex justify-content-between " style="border: thin; padding: 0px; margin: 10px 0px 10px 0px;">
                                 <!-- LISTA ITENS -->
                                 <div class="accordion accordion-flush" id="ac">
                                   <div class="accordion-item">
                                     <div id="flush-heading">
                                                                                                              <!-- ref está apenas para concatenar e nao dar erro por ser so numero -->
-                                      <div  style="text-align: start;" data-bs-toggle="collapse" data-bs-target="#ref<?php echo $linha['id'];?>" aria-expanded="false" aria-controls="flush-collapse">
+                                      <div  style="text-align: start; font-size: 15px;" data-bs-toggle="collapse" data-bs-target="#ref<?php echo $linha['id'];?>" aria-expanded="false" aria-controls="flush-collapse">
                                       <a href="#" class="descItens" style="color: #6b1a88;"><strong><?php echo $linha['descricao'];?></strong> </a>
                         </div>
                         </div>
@@ -161,8 +220,8 @@
                                                   <!-- aqui passa os sub produtos da categoria principal -->
                                                   <div id="ref<?php echo $linha['id'];?>" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#ac">
                                                     <div class="accordion-body" style="text-align: left; padding: inherit;">
-                                                    <i class="fa fa-check" style="color: brown;"></i> <a style="color:black ; text-decoration:none; font-size: 15px;" 
-                                                        onMouseOver="this.style.color='#87cefa'" onMouseOut="this.style.color='#111'"
+                                                    <i class="fa fa-check" style="color: #4fe15b;"></i> <a style="color:black ; text-decoration:none; font-size: 14px;" 
+                                                        onMouseOver="this.style.color= black" onMouseOut="this.style.color='#111'"
                                                         href="?categoria=<?php echo $item['id'];?>"><?php echo $item['descricao'];?>
                                                       </a><br>
                                                     </div>
@@ -217,8 +276,8 @@
                    
                     foreach($consulta as $linha){?>
                       
-                      <main class="cards col-lg-3 col-md-6 col-sm-12 p-2" style="margin-top: 10px; border: none;">
-                        <section class="card">
+                      <main class="cards col-lg-3 col-md-6 col-sm-12 p-2" style="margin-top: 10px; border: none; ">
+                        <section class="card card_imagens">
                           <!-- Imagem Item -->
                           <div class="text-center" style="width: 200px; display: flex; height:250px; padding:10px; margin: auto;">
                             <img class="img-fluid" style="width:100%; display: block; margin:auto;" src="<?php echo $linha['imagem'];?>" alt="...">
@@ -228,21 +287,21 @@
                             <div >
                               <!-- Nome do produto -->
                               <a style="text-align: center;" class="desc" href="descricao.php"></a>
-                              <h5 class="card-title p_Descricao"><?php echo $linha['descricao'];?></h5>
+                              <h6 class="card-title p_title"><?php echo $linha['descricao'];?></h6>
                               
                               <!-- Descrição -->
                               <div>
                                 <p class= "card-text p_Descricao"><?php echo $linha['resumo']?></p>
                                 <!-- Valor-->
                               
-                                <p class="card-text">R$<?php echo $linha['valor']?></p>
+                                <p class="card-text" style="text-align: center;">R$<?php echo $linha['valor']?></p>
                               
                               </div>
                               
                             </div>
 
                           </div>
-                          <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center; margin:20px">Ver mais</a>
+                          <a class="btn btn-primary" href="#" role="button" style="display: flex;margin: inherit;justify-content: center; margin:10px">Ver mais</a>
                         </section>
                     </main>
                       
