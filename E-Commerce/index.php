@@ -10,84 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .desc {
-            text-decoration: none;
-            color: black;
-            pointer-events: none;
-        }
-        .descItens{
-          text-decoration: none;
-          color: black;
-        }
-        .descItens:hover{
-            text-decoration: none;
-            color: black;
-        }
-
-        .col-10 {
-          padding-right: 0;
-          padding-left: 0;
-        }
-        .col-2 {
-          padding-right: 0;
-          padding-left: 0;
-        }
-
-        .h5-card{
-          display: -webkit-box;
-          height: 30px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 1;
-          padding-top: 4px;
-          color: #000000;
-          text-align: center;
-        }
-
-        .p_Descricao {
-          display: -webkit-box;
-          height: 58px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3;
-          text-align: center;
-          font-size: 13px;
-          margin: 0px;
-        }
-        .p_title {
-          display: -webkit-box;
-          height: 40px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: normal;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          text-align: center;
-          margin: 0px;
-        }
-        .hr {
-          margin: 10px 0;
-        }
-        .p_Valor_Produto{
-          font-weight: 900;
-          text-align: center;
-          font-size: 17px;
-        }
-        .menu {
-          color: #6b1a88;
-          font-weight: 700;
-        }
-        .card_imagens{
-          box-shadow: 2px 1px 6px grey;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/estilo.css">
 
 </head>
 <body > 
@@ -128,36 +53,58 @@
 
       </div>
       <!-- inicio slide de produtos -->
-      <div class="container-fluid" style="height: 300px; background-color: grey; margin: 20px 0px 10px 0px;">
-      imagens passando aqui
-        <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
+      <div class="container-fluid p-0" style="height: 300px;">
+      <!-- imagens passando aqui -->
+      <div>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 10px;">
+          <div class="carousel-indicators indicadores">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active" style="heigth: 100px;">
-              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+          <div class="carousel-inner" style="background-color:red; height: 300px;">
+          
+            <div class="carousel-item active" >
+              <div class="icones"> 
+                <div>
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                </div>
+              </div>
               <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5>Confira também</h5>
+                <p>Pc gamer</p>
               </div>
             </div>
-            <div class="carousel-item" style="heigth: 100px;">
-              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+          
+            <div class="carousel-item" >
+              <div class="icones"> 
+              <div>
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                </div>
+              </div>
               <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5>Confira também</h5>
+                <p>celulares</p>
               </div>
             </div>
-            <div class="carousel-item" style="heigth: 100px;">
-              <img src="imagens/informatica_e_acessorios/pc2.jpg"  alt="...">
+
+            <div class="carousel-item" >
+              <div class="icones"> 
+              <div>
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                </div>
+              </div>
               <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5>Confira também</h5>
+                <p>Televisões</p>
               </div>
             </div>
+
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -167,7 +114,8 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div> -->
+        </div>
+        </div>
       </div>
       <!-- fim do slide de produtos -->
       <div class="container p-3 mb-5" style="min-height: 80vh;" >
