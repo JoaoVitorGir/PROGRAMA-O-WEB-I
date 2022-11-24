@@ -27,10 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white;">Link</a>
+          <a class="nav-link" href="login.php" style="color: white;">Login</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Produtos</a>
@@ -81,8 +78,8 @@
             <div class="carousel-item" >
               <div class="icones"> 
               <div>
-                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
-                  <img class="icones_imagens" src="imagens/informatica_e_acessorios/pc2.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/eletronicos/celular.jpg" alt="...">
+                  <img class="icones_imagens" src="imagens/eletronicos/celular.jpg" alt="...">
                 </div>
               </div>
               <div class="carousel-caption d-none d-md-block">
