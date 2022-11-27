@@ -41,13 +41,55 @@
         <input class="form-control me-2" style="background-color: #ffffffb3"type="search" placeholder="Pesquisar" aria-label="Search">
         <button class="btn btn-outline-success" style="border-color: white; color: white;" type="submit">Pesquisar</button>
       </form>
-      <a class="nav-link" href="login.php" style="color: white; margin: 5px 5px 5px 20px">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-          </svg>
-          Login
-        </a>
+
+       <li class="nav-item dropdown" style="margin: 5px 5px 5px 20px; list-style-type: none;">
+          <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+            <?php
+          session_start();
+           
+          if ($_SESSION['usuario'] !== '') {
+            echo $_SESSION['usuario'];
+          }
+          
+          ?>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" style="color: #6b81a8;" href="login.php">Login</a></li>
+            <li><a class="dropdown-item" style="color: #6b81a8;" href="#">Carinho</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form name="" method="post" action="">
+                <button type="submit" name="sair" value="sair" style="border: none; width: 100%; text-align: left;">
+                <a class="dropdown-item" style="color: red; --bs-dropdown-link-active-bg: #ffffff; font-size: 18px">sair</a>
+                </button> 
+              </form>
+            </li>
+          </ul>
+        </li>  
+        <?php
+          $sair = @$_REQUEST['sair'];
+
+          if($sair){
+            if ($_SESSION['usuario'] !== 'Login'){
+              $sql_update = "UPDATE meu_commerce.usuarios SET logado = :logado where login = :login and senha = :senha";
+              $stmt= $conn->prepare($sql_update);
+              $stmt->execute(array(
+                "logado" => 0,
+                "login"  => $_SESSION['usuario'],
+                "senha"  => $_SESSION['senha']
+                ));
+
+              session_start();
+							$_SESSION['usuario'] = 'Login';
+							header("Location: index.php");
+						}
+          }
+					
+        ?>
     </div>
   </div>
 </nav>

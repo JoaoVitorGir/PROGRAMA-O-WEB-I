@@ -50,7 +50,7 @@
 							session_start();
 							$_SESSION['usuario']=$user;
 							$_SESSION['senha']=$pass;
-							header("Location: login.php");
+							header("Location: index.php");
 						} else {
 							echo "Senha ou usúario não estão corretos";
 						} 
