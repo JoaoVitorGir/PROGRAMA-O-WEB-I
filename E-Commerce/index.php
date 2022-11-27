@@ -26,9 +26,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="login.php" style="color: white;">Login</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Produtos</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,6 +41,13 @@
         <input class="form-control me-2" style="background-color: #ffffffb3"type="search" placeholder="Pesquisar" aria-label="Search">
         <button class="btn btn-outline-success" style="border-color: white; color: white;" type="submit">Pesquisar</button>
       </form>
+      <a class="nav-link" href="login.php" style="color: white; margin: 5px 5px 5px 20px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+          Login
+        </a>
     </div>
   </div>
 </nav>
@@ -135,8 +139,6 @@
                        //for que vai listar as categorias principais 
                         foreach($consulta as $linha){
                     ?>
-
-                          
 
                                 <li class="list-group-item d-flex justify-content-between " style="border: thin; padding: 0px; margin: 10px 0px 10px 0px;">
                                 <!-- LISTA ITENS -->

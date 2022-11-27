@@ -1,3 +1,7 @@
+<?php
+    include "lib/dbconn.php";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -10,7 +14,7 @@
 	</head>
 	<body>
 		<div class="global">
-            <a class="nav-link" href="index.php" style="color: white; padding-bottom: 50px;">
+            <a class="nav-link" href="index.php" style="color: white; margin-bottom: 50px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                 </svg> Voltar ao site
@@ -25,19 +29,34 @@
 				$user = @$_REQUEST['user'];
 				$pass = @$_REQUEST['pass'];
 				$submit = @$_REQUEST['submit'];
-				$user1 = 'user1';
-				$pass1 = 'pass1';
+                // user tem que ser unico para não dar erro 
+				$sql = "SELECT login,senha FROM meu_commerce.usuarios where login = '{$user}'";
+				$consulta = $conn->prepare($sql);
+				$consulta->execute();
 				
-				if($submit){
-                    if(($user == $user1 && $pass == $pass1)){
-                        session_start();
-                        $_SESSION['usuario']=$user;
-                        $_SESSION['senha']=$pass;
-                        header("Location: index.php");
-                    }
-                    
-                }
-			
+                foreach($consulta as $resposta){
+					if($submit){
+						
+						if(($user == $resposta['login'] && $pass == $resposta['senha'])){
+							
+							$sql_update = "UPDATE meu_commerce.usuarios SET logado = :logado where login = :login and senha = :senha";
+							$stmt= $conn->prepare($sql_update);
+							$stmt->execute(array(
+								"logado" => 1,
+								"login"  => $user,
+								"senha"  => $pass
+						    ));
+							
+							session_start();
+							$_SESSION['usuario']=$user;
+							$_SESSION['senha']=$pass;
+							header("Location: login.php");
+						} else {
+							echo "Senha ou usúario não estão corretos";
+						} 
+					}
+					
+			    }
 			?>
 		</div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
